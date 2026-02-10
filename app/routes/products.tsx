@@ -23,7 +23,6 @@ export default function ProductsPage() {
   const { items, filter, page, pageSize, totalItems, totalPages, hasNext, hasPrevious, loading, error } =
     useAppSelector((state) => state.products);
 
-  // Fetch on mount, filter change (debounced), and page change
   useEffect(() => {
     const timeout = setTimeout(() => {
       dispatch(fetchProducts({ name: filter || undefined, page, pageSize }));
