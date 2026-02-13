@@ -16,6 +16,7 @@ export default function ProductCreatePage() {
     name: "",
     description: "",
     active: true,
+    price: "0.00",
     materials: [{ id: 0, requiredQuantity: 1 }],
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -53,6 +54,14 @@ export default function ProductCreatePage() {
     }
   };
 
+  const onChangePrice = (value: string) => {
+    const formattedValue = value.replace(",", ".");
+
+      if (/^\d*\.?\d{0,2}$/.test(formattedValue)) {
+        setForm({ ...form, price: formattedValue });
+      }
+    };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -64,6 +73,7 @@ export default function ProductCreatePage() {
         name: form.name,
         description: form.description,
         active: form.active,
+        price: parseFloat(form.price),
         materials: form.materials,
       };
 
@@ -149,6 +159,23 @@ export default function ProductCreatePage() {
             }`}
           />
           {errors.description && <p className="mt-1 text-xs text-red-600">{errors.description}</p>}
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700">Price</label>
+          <input
+            type="text"
+            inputMode="decimal"
+            placeholder="0.00"
+            value={form.price}
+            onChange={(e) => onChangePrice(e.target.value)}
+            className={`mt-1 w-full rounded-md border px-3 py-2 text-sm shadow-sm outline-none focus:ring-1 ${
+              errors.price
+                ? "border-red-400 focus:border-red-500 focus:ring-red-500"
+                : "border-gray-300 focus:border-indigo-500 focus:ring-indigo-500"
+            }`}
+          />
+          {errors.price && <p className="mt-1 text-xs text-red-600">{errors.price}</p>}
         </div>
 
         <div className="flex items-center gap-3">

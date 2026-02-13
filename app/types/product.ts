@@ -14,5 +14,6 @@ export interface ProductFormData {
   name: string;
   description: string;
   active: boolean;
+  price: string;
   materials: ProductMaterial[];
 }

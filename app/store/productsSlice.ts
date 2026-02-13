@@ -4,6 +4,7 @@ import { api } from "~/services/api";
 export interface Product {
   id: number;
   name: string;
+  price: number;
   description: string;
   active: boolean;
 }
