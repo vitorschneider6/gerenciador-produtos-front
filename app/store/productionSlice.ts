@@ -4,6 +4,7 @@ import { api } from "~/services/api";
 export interface ProductProduction {
   id: number;
   name: string;
+  code: string;
   unitValue: number;
   productionValue: number;
   producibleAmount: number;

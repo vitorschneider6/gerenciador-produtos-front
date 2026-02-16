@@ -13,6 +13,7 @@ export interface ProductMaterial {
 export interface ProductFormData {
   name: string;
   description: string;
+  code: string;
   active: boolean;
   price: string;
   materials: ProductMaterial[];

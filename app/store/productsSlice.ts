@@ -6,6 +6,7 @@ export interface Product {
   name: string;
   price: number;
   description: string;
+  code: string;
   active: boolean;
 }
 
