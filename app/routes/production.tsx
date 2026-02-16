@@ -56,7 +56,13 @@ export default function ProductionPage() {
                 Product Name
               </th>
               <th className="px-6 py-3 text-center text-xs font-semibold uppercase tracking-wider text-gray-600">
+                Unit Value
+              </th>
+               <th className="px-6 py-3 text-center text-xs font-semibold uppercase tracking-wider text-gray-600">
                 Producible Amount
+              </th>
+              <th className="px-6 py-3 text-center text-xs font-semibold uppercase tracking-wider text-gray-600">
+                Total Value
               </th>
             </tr>
           </thead>
@@ -84,7 +90,17 @@ export default function ProductionPage() {
                   </td>
                   <td className="whitespace-nowrap px-6 py-4 text-center">
                     <span className="inline-flex rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-800">
+                      {product.unitValue.toFixed(2)}
+                    </span>
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-center">
+                    <span className="inline-flex rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-800">
                       {product.producibleAmount}
+                    </span>
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-center">
+                    <span className="inline-flex rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-800">
+                      {product.productionValue.toFixed(2)}
                     </span>
                   </td>
                 </tr>
