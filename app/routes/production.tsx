@@ -34,7 +34,7 @@ export default function ProductionPage() {
         <MagnifyingGlassIcon className="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
         <input
           type="text"
-          placeholder="Filter by name..."
+          placeholder="Filter by name or code..."
           value={filter}
           onChange={(e) => dispatch(setFilter(e.target.value))}
           className="w-full rounded-md border border-gray-300 py-2 pl-10 pr-4 text-sm shadow-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none"
@@ -55,6 +55,9 @@ export default function ProductionPage() {
               <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600">
                 Product Name
               </th>
+              <th className="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wider text-gray-600">
+                Code
+              </th>
               <th className="px-6 py-3 text-center text-xs font-semibold uppercase tracking-wider text-gray-600">
                 Unit Value
               </th>
@@ -69,13 +72,13 @@ export default function ProductionPage() {
           <tbody className="divide-y divide-gray-100 bg-white">
             {loading ? (
               <tr>
-                <td colSpan={5} className="px-6 py-10 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
                   Loading...
                 </td>
               </tr>
             ) : items.length === 0 ? (
               <tr>
-                <td colSpan={5} className="px-6 py-10 text-center text-gray-500">
+                <td colSpan={6} className="px-6 py-10 text-center text-gray-500">
                   No products found.
                 </td>
               </tr>
@@ -87,6 +90,9 @@ export default function ProductionPage() {
                   </td>
                   <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
                     {product.name}
+                  </td>
+                  <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900">
+                    {product.code}
                   </td>
                   <td className="whitespace-nowrap px-6 py-4 text-center">
                     <span className="inline-flex rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-semibold text-purple-800">
